@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.collective.endpoints.EndpointWorkFinderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-14T14:40:17" hostname="707af230563d" time="0.021">
+  <properties/>
+  <testcase name="finder" classname="test.collective.endpoints.EndpointWorkFinderTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

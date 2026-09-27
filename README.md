@@ -23,6 +23,23 @@ Look for todo items in the codebase for where to get started.
 
 ### Quick start
 
+Use JDK 17 to build this project. The Gradle wrapper downloads Gradle 8.6;
+no files from `/home/coder` or a separate Gradle installation are required.
+Java and Kotlin both compile to JVM 17 bytecode.
+
+On macOS, select your installed JDK before building:
+
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+```
+
+Open the repository root (the folder containing `settings.gradle`) in your IDE.
+For VS Code / code-server, this repository enables Kotlin support in the Java
+extension. Run `./gradlew clean build` first, then run **Java: Clean Java Language
+Server Workspace** from the command palette and reload the window if imports
+from `io.collective.restsupport` or `io.collective.workflow` remain unresolved.
+Those packages are local Kotlin modules, not missing Maven dependencies.
+
 Create a jar file without running tests.
 
 ```bash

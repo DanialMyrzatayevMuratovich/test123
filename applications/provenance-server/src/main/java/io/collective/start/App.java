@@ -11,7 +11,6 @@ import io.collective.endpoints.EndpointWorker;
 import io.collective.restsupport.BasicApp;
 import io.collective.restsupport.NoopController;
 import io.collective.restsupport.RestTemplate;
-import io.collective.workflow.WorkFinder;
 import io.collective.workflow.WorkScheduler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.jetbrains.annotations.NotNull;
@@ -21,22 +20,34 @@ import java.util.TimeZone;
 
 
 public class App extends BasicApp {
-    private static ArticleDataGateway articleDataGateway = new ArticleDataGateway(List.of(
+    private static final ArticleDataGateway articleDataGateway = new ArticleDataGateway(List.of(
             new ArticleRecord(10101, "Programming Languages InfoQ Trends Report - October 2019 4", true),
             new ArticleRecord(10106, "Ryan Kitchens on Learning from Incidents at Netflix, the Role of SRE, and Sociotechnical Systems", true)
     ));
+    private final WorkScheduler<EndpointTask> scheduler;
 
     @Override
     public void start() {
         super.start();
 
-        { // todo - start the endpoint worker
-        
-        }
+        scheduler.start();
+    }
+
+    @Override
+    public void stop() {
+        scheduler.shutdown();
+        super.stop();
     }
 
     public App(int port) {
+        this(port, new WorkScheduler<>(
+                new EndpointWorkFinder(new EndpointDataGateway()),
+                List.of(new EndpointWorker(new RestTemplate(), articleDataGateway)), 300));
+    }
+
+    public App(int port, WorkScheduler<EndpointTask> scheduler) {
         super(port);
+        this.scheduler = scheduler;
     }
 
     @NotNull

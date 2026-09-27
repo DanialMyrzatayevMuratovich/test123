@@ -16,7 +16,7 @@ abstract class BasicApp(port: Int) {
         Runtime.getRuntime().addShutdownHook(Thread {
             try {
                 if (server.isRunning) {
-                    server.stop()
+                    stop()
                 }
                 logger.info("App shutdown.")
             } catch (e: Exception) {
@@ -32,7 +32,7 @@ abstract class BasicApp(port: Int) {
         server.start()
     }
 
-    fun stop() {
+    open fun stop() {
         logger.info("App stopped.")
         server.stop()
     }

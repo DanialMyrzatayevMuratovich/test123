@@ -2,8 +2,8 @@ package test.collective.workflow
 
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.spy
-import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
+import org.mockito.Mockito.timeout
 import io.collective.workflow.NoopTask
 import io.collective.workflow.NoopWorkFinder
 import io.collective.workflow.NoopWorker
@@ -21,8 +21,10 @@ class WorkSchedulerTest {
 
         scheduler.start();
 
-        verify(spy, times(1)).execute(any())
-
-        scheduler.shutdown()
+        try {
+            verify(spy, timeout(2000).times(1)).execute(any())
+        } finally {
+            scheduler.shutdown()
+        }
     }
 }

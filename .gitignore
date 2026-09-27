@@ -1,0 +1,9 @@
+.DS_Store
+.gradle/
+.idea/
+**/build/
+**/bin/
+**/.classpath
+**/.project
+**/.settings/
+gradle/gradle-*-bin.zip

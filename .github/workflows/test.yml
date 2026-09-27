@@ -12,5 +12,7 @@ jobs:
           java-version: 19
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: Use public Gradle distribution outside Coursera
+        run: sed -i 's|file:///home/coder/project/learn/code/gradle/gradle-8.6-bin.zip|https\\://services.gradle.org/distributions/gradle-8.6-bin.zip|' gradle/wrapper/gradle-wrapper.properties
       - name: Build with Gradle
         run: ./gradlew build

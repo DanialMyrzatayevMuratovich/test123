@@ -5,7 +5,6 @@ import io.collective.articles.ArticleDataGateway;
 import io.collective.restsupport.RestTemplate;
 import io.collective.rss.RSS;
 import io.collective.workflow.Worker;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -18,7 +17,6 @@ public class EndpointWorker implements Worker<EndpointTask> {
         this.gateway = gateway;
     }
 
-    @NotNull
     @Override
     public String getName() {
         return "ready";

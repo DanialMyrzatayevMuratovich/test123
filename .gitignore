@@ -7,3 +7,4 @@
 **/.project
 **/.settings/
 gradle/gradle-*-bin.zip
+!gradle/gradle-8.6-bin.zip

@@ -13,7 +13,6 @@ import io.collective.restsupport.NoopController;
 import io.collective.restsupport.RestTemplate;
 import io.collective.workflow.WorkScheduler;
 import org.eclipse.jetty.server.handler.HandlerList;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.TimeZone;
@@ -50,7 +49,6 @@ public class App extends BasicApp {
         this.scheduler = scheduler;
     }
 
-    @NotNull
     @Override
     protected HandlerList handlerList() {
         HandlerList list = new HandlerList();

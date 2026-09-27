@@ -23,9 +23,10 @@ Look for todo items in the codebase for where to get started.
 
 ### Quick start
 
-Use JDK 17 to build this project. The Gradle wrapper downloads Gradle 8.6;
-no files from `/home/coder` or a separate Gradle installation are required.
-Java and Kotlin both compile to JVM 17 bytecode.
+Use JDK 17 to build this project. In the Coursera workspace, the Gradle
+wrapper uses the course-provided Gradle 8.6 archive at
+`/home/coder/project/learn/code/gradle/gradle-8.6-bin.zip`. The tracked link
+to that archive is required by the offline course environment.
 
 On macOS, select your installed JDK before building:
 
@@ -34,11 +35,10 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 ```
 
 Open the repository root (the folder containing `settings.gradle`) in your IDE.
-For VS Code / code-server, this repository enables Kotlin support in the Java
-extension. Run `./gradlew clean build` first, then run **Java: Clean Java Language
-Server Workspace** from the command palette and reload the window if imports
-from `io.collective.restsupport` or `io.collective.workflow` remain unresolved.
-Those packages are local Kotlin modules, not missing Maven dependencies.
+For VS Code / code-server, open the repository root and run
+`./gradlew clean build` once. Then run **Java: Clean Java Language Server
+Workspace** from the command palette and reload the window. All support modules
+use Java so they work with the Java extension bundled in the Coursera image.
 
 Create a jar file without running tests.
 

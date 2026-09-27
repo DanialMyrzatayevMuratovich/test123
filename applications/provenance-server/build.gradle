@@ -9,6 +9,7 @@ dependencies {
 }
 
 jar {
+    dependsOn configurations.runtimeClasspath
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     manifest {

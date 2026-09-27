@@ -1,4 +1,13 @@
 {
-    "java.jdt.ls.kotlinSupport.enabled": true,
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.import.gradle.enabled": true,
+    "java.import.gradle.wrapper.enabled": true,
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.server.launchMode": "Standard",
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "sha256": "d3b261c2820e9e3d8d639ed084900f11f4a86050a8f83342ade7b6bc9b0d2bdd",
+            "allowed": true
+        }
+    ]
 }

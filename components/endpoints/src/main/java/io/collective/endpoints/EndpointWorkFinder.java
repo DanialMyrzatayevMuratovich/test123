@@ -1,7 +1,6 @@
 package io.collective.endpoints;
 
 import io.collective.workflow.WorkFinder;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +15,8 @@ public class EndpointWorkFinder implements WorkFinder<EndpointTask> {
         this.gateway = gateway;
     }
 
-    @NotNull
     @Override
-    public List<EndpointTask> findRequested(@NotNull String name) {
+    public List<EndpointTask> findRequested(String name) {
         return gateway.findReady(name).stream()
                 .map(record -> new EndpointTask(record.getName())).collect(Collectors.toList());
     }
